@@ -1,4 +1,4 @@
-KNOWN_PREFIX="iss"
+KNOWN_PREFIX=iss
 CHECKOUT_MASTER_AFTER_FINISH = false
 
 # Colours
