@@ -23,7 +23,7 @@ function _gitrequest()
 
   # Checkout the desired branch
   gitbranchprefix="greq_"
-  if ! git checkout -b $gitbranchprefix$1
+  if ! git checkout -B $gitbranchprefix$1
   then
     echo $?
     return 1

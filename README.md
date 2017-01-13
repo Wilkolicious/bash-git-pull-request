@@ -11,7 +11,7 @@ git clone https://github.com/Wilkolicious/bash-git-pull-request.git
 
 Put the following in your `.bash_profile` or `.bashrc`, or whichever resource file.
 ```BASH 
-export BASHGITPULLREQUESTS==~/.bash/bash-git-pull-request
+export BASHGITPULLREQUESTS=~/.bash/bash-git-pull-request
 source "${BASHGITPULLREQUESTS}/main.sh"
 ```
 
