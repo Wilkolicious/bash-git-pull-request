@@ -14,3 +14,9 @@ Put the following in your `.bash_profile` or `.bashrc`, or whichever resource fi
 export BASHGITPULLREQUESTS==~/.bash/bash-git-pull-request
 source "${BASHGITPULLREQUESTS}/main.sh"
 ```
+
+## Usage
+```BASH
+# USAGE: gitrequest BRANCH_NAME COMMIT_MESSAGE
+gitrequest fixspellingmistakebashtest "FIX: Help page spelling mistake"
+```
