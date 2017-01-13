@@ -22,11 +22,15 @@ function _gitrequest()
     return 1
   fi
 
-  # Commit if the argument is supplied
-  if [ -z "${2:-0}" ] && ! [ git commit -m "${2:-0}" ]
+  # Commit
+  if [ ! -z "$2" ]  #If the commit argument has been supplied
   then
-    echo $?
-    return 1
+    commitmsg="${2:-0}"
+    if ! git commit -m "$commitmsg" #Commit or echo error
+    then
+      echo $?
+      return 1
+    fi
   fi
 
   # # Push the branch from local to remote
