@@ -25,6 +25,13 @@ export BASHGITPULLREQUESTS=~/.bash/bash-git-pull-request
 source "${BASHGITPULLREQUESTS}/main.sh"
 ```
 
+Now source or reload your terminal, e.g.
+```BASH
+source ~./bash_profile
+```
+
+Installation should be gucci.
+
 ## Usage
 ```BASH
 # USAGE: gitrequest BRANCH_NAME COMMIT_MESSAGE
