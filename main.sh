@@ -23,7 +23,7 @@ function _gitrequest()
   fi
 
   # Hub
-  brew ls --versions hub
+  brew ls --versions hub 2>/dev/null 1>&2
 
   if [ "${?:-0}" -eq 0 ]
   then
@@ -79,12 +79,18 @@ function _gitrequest()
     return 1
   fi
 
-  echo "Checking out master"
-  git checkout master
-  if [ "${?:-0}" -ne 0 ]
+  #Checkout back to master
+  if 0
   then
-    echo "Failed to checkout master"
-    return 1
+    echo "Checking out master"
+    git checkout master
+    if [ "${?:-0}" -ne 0 ]
+    then
+      echo "Failed to checkout master"
+      return 1
+    fi
+  else
+    echo "WARNING: Remember that you're still on branch $gitbranchprefix$1 !"
   fi
 
   return 0
