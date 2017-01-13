@@ -6,12 +6,19 @@ function _gitrequest()
 {
   brew ls --versions hub
 
-  if [ $? -eq 0 ]
+  if [ "${?:-0}" -eq 0 ]
   then
     echo "Detected hub is installed"
   else
-    echo "You need to install hub to use this alias. You can do this by running brew install hub"
-    return 1
+    echo "You need to install \`hub\` to use this alias. This can be done by running \`brew install hub\`."
+    echo "Would you like to install \`hub\`? [y/n]"
+    read installhub
+    if [[ "$installhub" == "y" ]]
+    then
+      brew install hub
+    else
+      return 1;
+    fi
   fi
 
   # Checkout the desired branch
@@ -22,15 +29,19 @@ function _gitrequest()
     return 1
   fi
 
-  # Commit if the argument is supplied
-  if [ -n $2 ] && [ ! git commit -m "$2" ]
+  # Commit
+  if [ ! -z "$2" ]  #If the commit argument has been supplied
   then
-    echo $?
-    return 1
+    commitmsg="${2:-0}"
+    if ! git commit -m "$commitmsg" #Commit or echo error
+    then
+      echo $?
+      return 1
+    fi
   fi
 
   # Push the branch from local to remote
-  if ! git push origin $gitbranchprefix$1
+  if ! git push -u origin $gitbranchprefix$1
   then
     echo $?
     return 1
