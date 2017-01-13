@@ -1,6 +1,8 @@
 # bash-git-pull-request
 Wrapper to automatically create pull requests on github through the command line.
 
+Really, you should be switching to your feature/bugfix branch before starting work, but this script will pretend you are working off your base branch (such as `master`) before switching
+
 # What does this do?
 The script will:
 - Check that `brew` is installed
