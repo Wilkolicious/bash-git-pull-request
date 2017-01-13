@@ -1,7 +1,6 @@
 alias gitrequest=_gitrequest
 
-
-# USAGE: git request
+# USAGE: gitrequest BRANCH_NAME COMMIT_MESSAGE
 # E.g. gitrequest fixspellingmistakebashtest "FIX: Help page spelling mistake"
 function _gitrequest()
 {
