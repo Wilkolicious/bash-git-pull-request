@@ -33,17 +33,17 @@ function _gitrequest()
     fi
   fi
 
-  # # Push the branch from local to remote
-  # if ! git push -u origin $gitbranchprefix$1
-  # then
-  #   echo $?
-  #   return 1
-  # fi
+  # Push the branch from local to remote
+  if ! git push -u origin $gitbranchprefix$1
+  then
+    echo $?
+    return 1
+  fi
 
-  # # Create a pull request on remote
-  # hub pull-request
-  # git checkout master
+  # Create a pull request on remote
+  hub pull-request
+  git checkout master
 
-  # return 0
+  return 0
 }
 
