@@ -101,7 +101,7 @@ function _gitrequest()
       return 1
     fi
   else
-    echo -e "${COL_YEL}WARNING: Remember that you're still on branch $gitbranchprefix$1 !${COL_END}"
+    echo -e "${COL_YEL}WARNING: Remember that you're still on branch ${gitbranchprefix}${1}!${COL_END}"
   fi
 
   return 0
