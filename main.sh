@@ -44,7 +44,7 @@ function _gitrequest()
 
   # Generate random hash
   # Credit to 'earthgecko' @ https://gist.github.com/earthgecko/3089509
-  RAND_HASH=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
+  RAND_HASH=$(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 
   # Determine branch prefix
   if ! [[ "$1" == "$KNOWN_PREFIX"* ]] # If the given branch starts with the prefix, don't inject prefix
