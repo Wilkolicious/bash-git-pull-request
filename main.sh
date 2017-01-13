@@ -6,7 +6,7 @@ function _gitrequest()
 {
   brew ls --versions hub
 
-  if [ $? -eq 0 ]
+  if [ "${?:-0}" -eq 0 ]
   then
     echo "Detected hub is installed"
   else
@@ -16,30 +16,30 @@ function _gitrequest()
 
   # Checkout the desired branch
   gitbranchprefix="greq_"
-  if ! git checkout -b $gitbranchprefix$1
+  if ! git checkout -B $gitbranchprefix$1
   then
     echo $?
     return 1
   fi
 
   # Commit if the argument is supplied
-  if [ -n $2 ] && [ ! git commit -m "$2" ]
+  if [ -z "${2:-0}" ] && ! [ git commit -m "${2:-0}" ]
   then
     echo $?
     return 1
   fi
 
-  # Push the branch from local to remote
-  if ! git push origin $gitbranchprefix$1
-  then
-    echo $?
-    return 1
-  fi
+  # # Push the branch from local to remote
+  # if ! git push -u origin $gitbranchprefix$1
+  # then
+  #   echo $?
+  #   return 1
+  # fi
 
-  # Create a pull request on remote
-  hub pull-request
-  git checkout master
+  # # Create a pull request on remote
+  # hub pull-request
+  # git checkout master
 
-  return 0
+  # return 0
 }
 
