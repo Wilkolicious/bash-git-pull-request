@@ -90,7 +90,7 @@ function _gitrequest()
     return 1
   fi
 
-  #Checkout back to master
+  # Checkout back to master
   if [[ "$CHECKOUT_MASTER_AFTER_FINISH" == true ]]
   then
     echo -e "${COL_GRN}Checking out master${COL_END}"
