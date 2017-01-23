@@ -47,7 +47,7 @@ function _gitrequest()
   RAND_HASH=$(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 
   # Determine branch prefix
-  if [ "$1" -ne "${KNOWN_PREFIX}*" ] # If the given branch starts with the prefix, don't inject prefix
+  if [[ $1 != ${KNOWN_PREFIX}* ]] # If the given branch does not start with the prefix, inject prefix
   then
     gitbranchprefix="$RAND_HASH"_
   fi
