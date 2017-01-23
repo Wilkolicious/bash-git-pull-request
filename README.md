@@ -8,6 +8,7 @@ The script will:
 - Check that `brew` is installed
   - Check that `hub` is installed from brew
 - Create the new branch with the supplied branch name
+  - If branch name does not begin with the prefix given in `config.sh`, then a random hash is prefixed to the branch name.
 - If the commit message is supplied, it will commit any changes using the commit message
   - If no commit message supplied, it will simply not commit anything
 - Push the changes to the branch on `origin`
