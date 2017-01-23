@@ -60,11 +60,11 @@ function _gitrequest()
   fi
 
   # Commit
-  if [ ! -z "$2" ]  #If the commit argument has been supplied
+  if [ ! -z "$2" ] # If the commit argument has been supplied
   then
     echo -e "${COL_GRN}Committing changes${COL_END}"
     commitmsg="${2:-0}"
-    if ! git commit -m "$commitmsg" #Commit or echo error
+    if ! git commit -m "$commitmsg" # Commit or echo error
     then
       echo -e ${COL_RED}$?${COL_END}
       return 1
