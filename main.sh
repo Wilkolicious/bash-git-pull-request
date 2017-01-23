@@ -59,7 +59,7 @@ function _gitrequest()
     return 1
   fi
 
-  # Commit
+  # Commit staged changes
   if [ ! -z "$2" ] # If the commit argument has been supplied
   then
     echo -e "${COL_GRN}Committing changes${COL_END}"
